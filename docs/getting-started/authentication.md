@@ -8,6 +8,8 @@ Authenticate before any command that calls the Permiso backend (hook delivery, u
 
 ```bash
 permiso login
+permiso login --api-key YOUR_KEY
+permiso login --no-browser
 permiso whoami
 permiso logout
 ```
@@ -15,12 +17,24 @@ permiso logout
 | Command | Description |
 |---------|-------------|
 | `permiso login` | Prompt for API key; stored in OS keyring when available |
+| `permiso login --api-key KEY` | Pass API key on the command line; skips browser and interactive prompt |
+| `permiso login --no-browser` | Skip opening the dashboard URL (still prompts unless `--api-key` is set) |
 | `permiso whoami` | Show current user and org context |
 | `permiso logout` | Remove stored credentials |
 
+## API key via flag
+
+Non-interactive login that persists the key to the keyring/file:
+
+```bash
+permiso login --api-key YOUR_KEY
+```
+
+> **Warning:** CLI arguments can appear in process listings (`ps`). Prefer `PERMISO_API_KEY` for long-lived CI, or paste interactively when possible.
+
 ## API key via environment
 
-For CI and non-interactive rollouts:
+For CI and non-interactive rollouts (bypasses keyring/file storage):
 
 ```bash
 export PERMISO_API_KEY=your-key
