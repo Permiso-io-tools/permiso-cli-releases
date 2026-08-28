@@ -4,6 +4,8 @@
 
 When hook callbacks must return quickly, use `--async` to enqueue events and flush via queue commands or the local daemon.
 
+**Important:** `--async` (and daemon ingest) is **observational only**. It does not write policy decision JSON to stdout, so it **cannot** allow/deny IDE actions. Use default sync `hooks send-event` when Cursor or other IDEs must enforce Permiso policy.
+
 ## Queue commands
 
 ```bash

@@ -26,6 +26,16 @@ permiso hooks send-event --runtime claude \
 | `--no-redact` | Disable send-path redaction (when enabled globally or via `--redact`) |
 | `--verbose-redact` | Log matched redaction rule names to stderr |
 
+### Policy decisions (IDE blocking)
+
+On **sync** `send-event` (the default hook command), the CLI POSTs the vendor payload and writes the hooks API response body to **stdout**. Cursor and other IDEs read that JSON to allow or deny the next step (for example `{"permission":"deny"}` or `{"continue":false}`).
+
+- If the API returns an empty/`204` body for a known gate event, the CLI emits a small allow/continue default so the IDE never sees silent empty stdout on success.
+- If send fails (network, auth, or API error), the CLI logs a warning to **stderr**, records the failure in the audit log, writes the same allow/continue default when applicable, and exits `0` (**fail open**). Backend outages must not block the agent.
+- `--async`, `--via-daemon`, and queue flush are **observational only** — they do not write policy JSON for the IDE and **cannot** enforce allow/deny.
+
+Keep diagnostics on stderr; only policy JSON belongs on stdout when hooks invoke the CLI.
+
 ## normalize
 
 Inspect canonical normalization without sending:
