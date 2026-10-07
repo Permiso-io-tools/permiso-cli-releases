@@ -8,13 +8,13 @@ This repository publishes **pre-built binaries** and **user documentation** only
 
 ## Install
 
-Download the archive for your platform from [Releases](https://github.com/Permiso-io/permiso-cli-releases/releases).
+Download the archive for your platform from [Releases](https://github.com/Permiso-io-tools/permiso-cli-releases/releases).
 Assets are named `permiso-cli_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows). **WSL** uses the Linux build.
 
 ```bash
 VERSION=0.1.0
 curl -fsSL -o permiso.tar.gz \
-  "https://github.com/Permiso-io/permiso-cli-releases/releases/download/v${VERSION}/permiso-cli_${VERSION}_linux_amd64.tar.gz"
+  "https://github.com/Permiso-io-tools/permiso-cli-releases/releases/download/v${VERSION}/permiso-cli_${VERSION}_linux_amd64.tar.gz"
 tar -xzf permiso.tar.gz permiso
 chmod +x permiso
 sudo mv permiso /usr/local/bin/   # or ~/.local/bin

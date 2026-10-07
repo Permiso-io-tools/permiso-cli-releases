@@ -41,4 +41,4 @@
 | `permiso backfill` | Read IDE logs | [Backfill](../guides/backfill.md) |
 | `permiso ai discover` | AI tooling scan | [AI discovery](../guides/ai-discovery.md) |
 
-> **Note:** Docs live at [permiso-cli-releases](https://github.com/Permiso-io/permiso-cli-releases/tree/main/docs) until the full site ships. `permiso open docs` (Epic 22) will open the configured `docs_url`.
+> **Note:** Docs live at [permiso-cli-releases](https://github.com/Permiso-io-tools/permiso-cli-releases/tree/main/docs) until the full site ships. `permiso open docs` (Epic 22) will open the configured `docs_url`.

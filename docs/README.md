@@ -1,6 +1,6 @@
 # Permiso CLI documentation
 
-User guides for the Permiso CLI. Binaries are published on [GitHub Releases](https://github.com/Permiso-io/permiso-cli-releases/releases).
+User guides for the Permiso CLI. Binaries are published on [GitHub Releases](https://github.com/Permiso-io-tools/permiso-cli-releases/releases).
 
 ## Getting Started
 
